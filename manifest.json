@@ -1,0 +1,60 @@
+{
+  "name": "save-zero-block",
+  "version": "1.0",
+  "manifest_version": 3,
+  "content_scripts": [
+    {
+      "run_at": "document_end",
+      "matches": [
+        "https://*.tilda.by/*",
+        "https://*.tilda.cc/*",
+        "https://*.tilda.kz/*",
+        "https://*.tilda.ru/*"
+      ],
+      "js": ["inject.js"],
+      "all_frames": true
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "world": "MAIN",
+      "run_at": "document_end",
+      "resources": [
+        "constants.js",
+        "event-bus.js",
+        "helpers.js",
+        "indexDB.js",
+        "db.js",
+        "history-selector.js",
+        "tilda-layout.js",
+        "url-watcher.js",
+        "app.js"
+      ],
+      "matches": [
+        "https://*.tilda.by/*",
+        "https://*.tilda.cc/*",
+        "https://*.tilda.kz/*",
+        "https://*.tilda.ru/*"
+      ],
+      "all_frames": true
+    }
+  ],
+  "action": {
+    "default_title": "save-zero-block"
+  },
+  "host_permissions": [
+    "https://*.tilda.by/*",
+    "https://*.tilda.cc/*",
+    "https://*.tilda.kz/*",
+    "https://*.tilda.ru/*"
+  ],
+  "permissions": ["scripting"],
+  "externally_connectable": {
+    "matches": [
+      "https://*.tilda.by/*",
+      "https://*.tilda.cc/*",
+      "https://*.tilda.kz/*",
+      "https://*.tilda.ru/*"
+    ]
+  }
+}
